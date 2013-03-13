@@ -1,0 +1,8 @@
+Foist
+-----
+
+__Complete a whole line from any partial within it.__
+
+Whole line completion for Vim without the requirement of starting from
+the first character on the line.
+

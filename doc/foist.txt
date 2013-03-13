@@ -1,0 +1,23 @@
+*foist.txt*	For Vim version 7.3	Last change: 2013-03-13
+
+
+			VIM REFERENCE MANUAL	by Barry Arthur
+
+
+Help on using foist                                                    *foist*
+
+1. Introduction				|foist-intro|
+
+==============================================================================
+ 1. INTRODUCTION                                                  *foist-intro*
+
+Vim's builtin line-completion requires that the partial text match the
+start of candidate lines, forcing users to remember the start of the
+lines they have in mind rather than being able to match any lines
+containing the partial text anywhere within the line.
+
+Foist solves that problem by providing whole line completion based on
+partials matching any text therein. Foist searches all loaded buffers
+for candidates matching the supplied partial.
+
+ vim:tw=78:ts=8:ft=help:norl:
