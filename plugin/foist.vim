@@ -26,7 +26,7 @@ function! Foist(term)
   let curbuf = bufnr('%')
   silent bufdo call extend(all_buf_lines, getline(1, '$'))
   exe "buffer " . curbuf
-  return filter(all_buf_lines, 'v:val =~ a:term')
+  return filter(all_buf_lines, 'stridx(v:val, a:term) > -1')
 endfunction
 
 function! FoistComplete(findstart, base)
