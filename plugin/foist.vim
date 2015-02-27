@@ -1,18 +1,17 @@
 " Vim global plugin for completing whole lines generously
 " Maintainer:	Barry Arthur <barry.arthur@gmail.com>
-" Version:	0.1
+" Version:	0.2
 " Description:	Complete whole lines from any partiel therein.
-" Last Change:	2013-03-13
 " License:	Vim License (see :help license)
 " Location:	plugin/foist.vim
-" Website:	https://github.com/dahu/foist
+" Website:	https://github.com/dahu/vim-foist
 "
 " See foist.txt for help.  This can be accessed by doing:
 "
 " :helptags ~/.vim/doc
 " :help foist
 
-let g:foist_version = '0.1'
+let g:foist_version = '0.2'
 
 " Vimscript Setup: {{{1
 " Allow use of line continuation.
@@ -22,11 +21,12 @@ set cpo&vim
 " Foist User Completion {{{1
 
 function! Foist(term)
+  let term = matchstr(a:term, '^\s*\zs.*\ze\s*$')
   let all_buf_lines = []
   let curbuf = bufnr('%')
   silent bufdo call extend(all_buf_lines, getline(1, '$'))
   exe "buffer " . curbuf
-  return filter(all_buf_lines, 'stridx(v:val, a:term) > -1')
+  return filter(all_buf_lines, 'stridx(v:val, term) > -1')
 endfunction
 
 function! FoistComplete(findstart, base)
